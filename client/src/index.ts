@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { Builder } from 'xml2js';
-import { parseStringPromise } from 'xml2js';
+import { Builder, parseStringPromise } from 'xml2js';
 
 const server = process.argv[2];
 const port = process.argv[3];
