@@ -51,6 +51,7 @@ async function sendRequest(method: string, params: number[]) {
         // @ts-ignore
         console.log('subtract("abc", "def") =', await sendRequest('subtract', ['abc', 'def']));
         console.log('divide(10, 0) =', await sendRequest('divide', [10, 0]));
+        console.log('modulo(10, 0) =', await sendRequest('modulo', [10, 0]));
     } catch (error) {
         console.error(error.message);
     }
