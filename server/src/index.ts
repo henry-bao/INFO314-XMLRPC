@@ -20,6 +20,8 @@ app.post('/RPC', async (req, res) => {
     const methodName = xml.methodCall.methodName[0];
     const params = xml.methodCall.params[0].param.map((p: any) => parseInt(p.value[0].i4));
 
+    console.log({ methodName, params });
+
     if (params.some((p: any) => isNaN(p))) {
         response = errorBuilder(3, 'Illegal argument type');
         res.type('text/xml').send(response);
@@ -66,7 +68,6 @@ app.post('/RPC', async (req, res) => {
             res.status(404).send('Not Found');
             return;
     }
-
     res.type('text/xml').send(response);
 });
 
@@ -94,6 +95,7 @@ function responseBuilder(result: number) {
 }
 
 function errorBuilder(faultCode: number, faultString: string) {
+    console.log({ faultCode, faultString });
     return new Builder().buildObject({
         methodResponse: {
             fault: {

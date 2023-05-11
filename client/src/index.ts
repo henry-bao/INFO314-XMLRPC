@@ -43,7 +43,10 @@ async function sendRequest(method: string, params: number[]) {
         console.log('multiply(1, 2, 3, 4, 5) =', await sendRequest('multiply', [1, 2, 3, 4, 5]));
 
         // Error cases
-        console.log('add(Math.max(), Math.max()) =', await sendRequest('add', [Math.max(), Math.max()]));
+        console.log(
+            'add(Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER) =',
+            await sendRequest('add', [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER])
+        );
         console.log('multiply(46341, 46341) =', await sendRequest('multiply', [46341, 46341]));
         // @ts-ignore
         console.log('subtract("abc", "def") =', await sendRequest('subtract', ['abc', 'def']));
