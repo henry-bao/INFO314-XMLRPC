@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { parseStringPromise } from 'xml2js';
-import { Builder } from 'xml2js';
+import { parseStringPromise, Builder } from 'xml2js';
 
 const app = express();
 const port = 8080;
